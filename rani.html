@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>For Rani: My Love, My Gamer, My Rider ❤️</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      background-color: #1a1a1a;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    h1 {
+      color: #ff4757;
+      font-size: 3rem;
+      margin-top: 20px;
+    }
+    p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      background-color: #ff4757;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin: 10px;
+    }
+    button:hover {
+      background-color: #ff6b81;
+    }
+    .container {
+      padding: 20px;
+      position: relative;
+      z-index: 1;
+    }
+    .love-meter {
+      width: 80%;
+      height: 20px;
+      background-color: #333;
+      border-radius: 10px;
+      margin: 20px auto;
+      overflow: hidden;
+    }
+    .love-meter-fill {
+      height: 100%;
+      background-color: #ff4757;
+      width: 0;
+      transition: width 0.5s;
+    }
+    .bike-animation {
+      font-size: 3rem;
+      animation: ride 5s linear infinite;
+    }
+    @keyframes ride {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    .memory-lane {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      margin: 20px auto;
+      max-width: 600px;
+    }
+    .heart {
+      position: absolute;
+      color: #ff4757;
+      font-size: 2rem;
+      animation: fall linear infinite;
+    }
+    @keyframes fall {
+      0% { transform: translateY(-10%); }
+      100% { transform: translateY(110%); }
+    }
+    .cat {
+      position: absolute;
+      font-size: 3rem;
+      bottom: 0;
+      animation: walk 10s linear infinite;
+    }
+    @keyframes walk {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    .cursor-sparkle {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background-color: #ff4757;
+      border-radius: 50%;
+      pointer-events: none;
+      animation: sparkle 0.5s ease-out;
+    }
+    @keyframes sparkle {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(2); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Falling Hearts -->
+  <div id="heartsContainer"></div>
+
+  <!-- Walking Cat -->
+  <div class="cat">🐾</div>
+
+  <!-- Sparkling Cursor Effect -->
+  <div id="cursorSparkles"></div>
+
+  <div class="container">
+    <h1>For Rani: My Love, My Gamer, My Rider ❤️</h1>
+    <p>Hey Rani, life is like a Valorant match: sometimes it’s tough, but with you by my side, we always win. 🎮❤️</p>
+    <p>And just like a bike ride, every moment with you is an adventure. Let’s keep riding together, forever. 🚴‍♂️💨</p>
+
+    <!-- Love Meter -->
+    <div class="love-meter">
+      <div class="love-meter-fill" id="loveMeter"></div>
+    </div>
+    <button onclick="fillLoveMeter()">Click to Fill the Love Meter</button>
+
+    <!-- Bike Animation -->
+    <div class="bike-animation">🚴‍♂️</div>
+
+    <!-- Memory Lane -->
+    <div class="memory-lane">
+      <h2>Memory Lane 🛤️</h2>
+      <p>Remember our first hangout at the cinema? That’s when I knew you were my forever teammate. ❤️</p>
+      <p>It wasn’t just a movie; it was the start of our story. I’ll never forget how happy I felt that day, sitting next to you, sharing popcorn, and stealing glances. You made everything feel magical. 🍿🎬</p>
+    </div>
+
+    <!-- Valorant Reference -->
+    <h2>Mission Complete: You’ve Stolen My Heart 🎯</h2>
+    <p>Rani, you’re the MVP of my life. No one else comes close. 💘</p>
+  </div>
+
+  <script>
+    let loveLevel = 0;
+    const loveMeter = document.getElementById("loveMeter");
+
+    function fillLoveMeter() {
+      if (loveLevel < 100) {
+        loveLevel += 10;
+        loveMeter.style.width = loveLevel + "%";
+      }
+      if (loveLevel === 100) {
+        alert("Congratulations, Rani! You’ve unlocked my heart forever. ❤️");
+      }
+    }
+
+    // Falling Hearts Animation
+    const heartsContainer = document.getElementById("heartsContainer");
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+      heartsContainer.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+    setInterval(createHeart, 300);
+
+    // Sparkling Cursor Effect
+    const cursorSparkles = document.getElementById("cursorSparkles");
+    document.addEventListener("mousemove", (e) => {
+      const sparkle = document.createElement("div");
+      sparkle.classList.add("cursor-sparkle");
+      sparkle.style.left = e.pageX + "px";
+      sparkle.style.top = e.pageY + "px";
+      cursorSparkles.appendChild(sparkle);
+      setTimeout(() => sparkle.remove(), 500);
+    });
+  </script>
+</body>
+</html>
